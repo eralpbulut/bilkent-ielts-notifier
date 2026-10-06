@@ -55,9 +55,6 @@ def get_page_hash():
     # Görünen tüm metni karşılaştır
     text = " ".join(soup.stripped_strings)
 
-    print("=== BILKENT SAYFASINDAN OKUNAN METIN ===")
-    print(text[:5000])
-    print("=== METIN SONU ===")
 
     if len(text) < 100:
         raise RuntimeError("Sayfa içeriği beklenmedik şekilde boş geldi.")
