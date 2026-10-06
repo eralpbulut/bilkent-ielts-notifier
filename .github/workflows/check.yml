@@ -33,17 +33,18 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python ielts_checker.py
-
+        
       - name: Yeni durumu kaydet
         run: |
-          if git diff --quiet; then
-            echo "Kaydedilecek değişiklik yok."
-            exit 0
-          fi
-
           git config user.name "bilkent-ielts-bot"
           git config user.email "actions@github.com"
 
           git add last_hash.txt
+
+          if git diff --cached --quiet; then
+            echo "Kaydedilecek değişiklik yok."
+            exit 0
+          fi
+
           git commit -m "Update IELTS monitor state"
           git push
