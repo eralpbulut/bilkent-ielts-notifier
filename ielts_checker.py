@@ -6,6 +6,14 @@ from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+
+NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "").strip()
+
+if not NTFY_TOPIC:
+    raise RuntimeError(
+        "NTFY_TOPIC bulunamadi. GitHub Repository Secret ayarini kontrol et."
+    )
+
 URL = "https://prep.bilkent.edu.tr/ielts/"
 STATE_FILE = "last_hash.txt"
 NTFY_TOPIC = os.environ["NTFY_TOPIC"]
