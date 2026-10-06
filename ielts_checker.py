@@ -61,7 +61,7 @@ def notify():
             "https://prep.bilkent.edu.tr/ielts/"
         ).encode("utf-8"),
         headers={
-            "Title": "Bilkent IELTS değişti",
+            "Title": "Bilkent IELTS degisti",
             "Priority": "urgent",
             "Tags": "warning"
         },
